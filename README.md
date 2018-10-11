@@ -1,27 +1,31 @@
 # PHP Luhn Algorithm
 
-## Methods
+PHP implementation of the Luhn algorithm. Commonly used in identification
+numbers, including IMEI and credit card numbers.
 
-### Luhn::luhnChecksum
+Unlike some implementations this one handles both odd and even number of
+digits.
 
-Compute Luhn checksum digit
-
-```php
-public int Luhn::luhnChecksum( int|string $number )
-```
-
-### Luhn::isValidLuhn
-
-Validate number with a Luhn checksum digit.
+## Example
 
 ```php
-public bool Luhn::isValidLuhn( int|string $number )
+<?php
+
+// Preferably autoload instead of using require
+require 'src/Luhn.php';
+use Tdely\Luhn\Luhn;
+
+$original = 82356937851;
+
+// Calculate check digit
+var_dump(Luhn::checksum($original));  // int(1)
+
+// Calculate and add check digit to number
+$checksum = Luhn::create($original);
+var_dump($checksum);                  // string(12) "823569378511"
+
+// Validate numbers
+var_dump(Luhn::isValid($original));   // bool(false)
+var_dump(Luhn::isValid($checksum));   // bool(true)
 ```
 
-### Luhn::algorithm
-
-Main algorithm.
-
-```php
-private int Luhn::algorithm( int|string $number )
-```

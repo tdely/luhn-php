@@ -1,0 +1,27 @@
+{
+  "name": "tdely/luhn",
+  "description": "PHP implementation of the Luhn algorithm.",
+  "homepage": "https://gitlab.com/tdely/luhn-php",
+  "keywords": [
+    "luhn",
+    "identification number",
+    "imei",
+    "credit card"
+  ],
+  "license": "Unlicense",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Tobias Dély",
+      "email": "cleverhatcamouflage@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tdely\\Luhn\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.0"
+  }
+}
